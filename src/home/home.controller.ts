@@ -18,11 +18,8 @@ export class HomeController {
     @Get('searchall/:queryStr') 
     async searchAll(@Param('queryStr') queryStr: string) {
         const cities = await this.citiesService.searchCity(queryStr);
-        //console.log("cities=" + cities);
         const builders = await this.buildersService.searchBuilder(queryStr);
-        //console.log("builders=" + builders);
         const products = await this.productsService.searchProduct(queryStr);
-        //console.log("products=" + products);
 
         return { 
             City: cities,

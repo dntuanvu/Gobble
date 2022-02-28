@@ -96,10 +96,7 @@ export class ProductsService {
     }
 
     async deleteProduct(productId: string) {
-        const result = await this.productModel.deleteOne({ _id: productId });
-        /*if (result.n === 0) {
-            throw new NotFoundException('Could not find product.'); 
-        }*/
+        await this.productModel.deleteOne({ _id: productId });
     }
 
     private async findProduct(id: string): Promise<Product> {
